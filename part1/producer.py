@@ -18,9 +18,12 @@ if __name__ == "__main__":
         'security.protocol': 'SASL_SSL',
         'ssl.ca.location': 'YandexInternalRootCA.crt',
         'sasl.mechanism': 'SCRAM-SHA-512',
+        "sasl.username": "admin",
+        "sasl.password": "adminpass",
+        #"api-key": "AQVNwaPNotPrCTAj7xZlOgl-KojEHD_L8D1Gy5aL"
         }
     producer = Producer(producer_conf)
-    schema_registry_client = SchemaRegistryClient({"url": schema_registry_url})
+    schema_registry_client = SchemaRegistryClient({"url": schema_registry_url, "basic.auth.user.info": "api-key:AQVNwaPNotPrCTAj7xZlOgl-KojEHD_L8D1Gy5aL"})
 
     try:
         latest = schema_registry_client.get_latest_version(subject)
