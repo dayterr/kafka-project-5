@@ -60,3 +60,30 @@
 <!---
 можно посмотреть картинку step-4-part-2.png в директории pics
 -->
+
+### логи продьюсера и консьюмера
+
+пример работы продьюсера (скрин):  
+
+[<img src="pics/step-4-part-1.png">](https://github.com/dayterr/kafka-project-5/blob/main/part1/pics/step-4-part-1.png)
+
+<!---
+можно посмотреть картинку step-4-part-1.png в директории pics
+-->
+
+пример работы консьюмера (скрин):  
+
+[<img src="pics/step-4-part-2.png">](https://github.com/dayterr/kafka-project-5/blob/main/part1/pics/step-4-part-2.png)
+
+<!---
+можно посмотреть картинку step-4-part-2.png в директории pics
+-->
+
+### описание топиков
+вместо `kafka-topics.sh --describe` будет также немного другая команда (скрин):
+
+[<img src="pics/step-6.png">](https://github.com/dayterr/kafka-project-5/blob/main/part1/pics/step-6.png)
+
+<!---
+можно посмотреть картинку step-6.png в директории pics
+-->
