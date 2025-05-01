@@ -8,37 +8,28 @@ from utils.constants import MESSAGE_SCHEMA_STR
 from utils.serializers import message_to_dict
 
 if __name__ == "__main__":
-    bootstrap_servers = "rc1a-2it2mhmvlhsb2cqp.mdb.yandexcloud.net,rc1b-pvdblahn1i73gsfh.mdb.yandexcloud.net,rc1d-0hc2kaknrrd2a4f3.mdb.yandexcloud.net"
-    schema_registry_url = "https://srnpb4efj109aer6luqh.schema-registry.yandexcloud.net:443/subjects"
-    topic = "test-topic"
-    subject = topic + "-value"
+    bootstrap_servers = "rc1a-2it2mhmvlhsb2cqp.mdb.yandexcloud.net:9091,rc1b-pvdblahn1i73gsfh.mdb.yandexcloud.net:9091,rc1d-0hc2kaknrrd2a4f3.mdb.yandexcloud.net:9091"
+    schema_registry_url = "https://srnpb4efj109aer6luqh.schema-registry.yandexcloud.net:443"
+    topic = "test-message"
+    subject = "messageschema"
 
     producer_conf = {
         "bootstrap.servers": bootstrap_servers,
-        'security.protocol': 'SASL_SSL',
-        'ssl.ca.location': 'YandexInternalRootCA.crt',
-        'sasl.mechanism': 'SCRAM-SHA-512',
+        "security.protocol": "SASL_SSL",
+        "ssl.ca.location": "/Users/ruthdayter/Dev/study/kafka/kafka-project-5/part1/YandexInternalRootCA.crt",
+        "sasl.mechanism": "SCRAM-SHA-512",
         "sasl.username": "admin",
         "sasl.password": "adminpass",
         }
-    producer = Producer(producer_conf)
-    schema_registry_client = SchemaRegistryClient({"url": schema_registry_url})
 
-    try:
-        latest = schema_registry_client.get_latest_version(subject)
-        print(f"Schema is already registered for {subject}:\n{latest.schema.schema_str}")
-    except Exception:
-        schema_object = Schema(MESSAGE_SCHEMA_STR, "JSON")
-        schema_id = schema_registry_client.register_schema(
-            subject,
-            schema_object)
-        print(f"Registered schema for {subject} with id: {schema_id}")
+    producer = Producer(producer_conf)
+    schema_registry_client = SchemaRegistryClient({"url": schema_registry_url, "basic.auth.user.info": "api-key:AQVN0TJw4i5dC-NKXePu73tpwb8Kvlv39tReYQj5"})
 
     json_serializer = JSONSerializer(MESSAGE_SCHEMA_STR,
                                      schema_registry_client,
                                      message_to_dict)
     message = {
-        "test": "hey there, Kafka",
+        "text": "hey there, Kafka",
         "somenumber": 1,
         "color": "green",
     }

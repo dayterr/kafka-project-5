@@ -38,8 +38,25 @@
 
 создаём Schema Registry через веб-интерфейс. результат можно увидеть на скрине:  
 
-[<img src="pics/step3.png">](https://github.com/dayterr/kafka-project-5/blob/main/part1/pics/step3.png)
+[<img src="pics/step-3.png">](https://github.com/dayterr/kafka-project-5/blob/main/part1/pics/step-3.png)
 
 <!---
-можно посмотреть картинку step3.png в директории pics
+можно посмотреть картинку step-3.png в директории pics
+-->
+
+### команды через curl
+в нашем случае не имеет смысла кидать команду на localhost, поскольку наша Schema Registery живёт на Yandex Cloud. поэтому команда будет выглядеть по-другому (скрин):
+
+[<img src="pics/step-4-part-1.png">](https://github.com/dayterr/kafka-project-5/blob/main/part1/pics/step-4-part-1.png)
+
+<!---
+можно посмотреть картинку step-4-part-1.png в директории pics
+-->
+
+то же самое касается и версий (скрин):
+
+[<img src="pics/step-4-part-2.png">](https://github.com/dayterr/kafka-project-5/blob/main/part1/pics/step-4-part-2.png)
+
+<!---
+можно посмотреть картинку step-4-part-2.png в директории pics
 -->

@@ -6,7 +6,7 @@ MESSAGE_SCHEMA_STR = """
     "properties": {
        "text": {"type": "string"},
        "somenumber": {"type": "integer"},
-       "color": {"type": "integer"}
+       "color": {"type": "string"}
     },
     "required": ["text", "somenumber", "color"]
    }
